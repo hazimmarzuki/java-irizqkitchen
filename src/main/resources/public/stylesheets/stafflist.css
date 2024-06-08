@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Quicksand', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: .2s linear;
+}
+
+:root{
+    --black: #1B1722;
+    --white: #f2e8b9;
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+    --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+/*header starts here*/
+.header{
+    top: 0;right: 0;left: 0;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    padding: 1.4rem 7%;
+    z-index: 999;
+}
+
+.header .logoContent{
+    display: flex;
+    align-items: center;
+}
+
+.header .logoContent .logo img{
+    height: 3rem;
+}
+
+.header .logoContent .logoName{
+    color: var(--black);
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+.header .logoName{
+    padding-left: 10px;
+}
+
+.header .navbar a{
+    font-size: 1rem;
+    margin-right: 3rem;
+    color: var(--black);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.header .navbar a:hover{
+    border-bottom: .1rem solid var(--black);
+    padding-bottom: .4rem;
+}
+
+.header .icon i{
+    font-size: 1rem;
+    margin-right: 1rem;
+    color: var(--black);
+    cursor: pointer;
+}
+
+/*header ends here*/
+body{
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+    margin-top: 50px;
+    font-size: larger;
+    padding-top: 10px;
+}
+.container {
+    display: flex;
+    align-items: center;
+  }
+  table {
+    font-size: x-large;
+    margin-top: 2rem;
+    width: 80%;
+    text-align: center;
+  }

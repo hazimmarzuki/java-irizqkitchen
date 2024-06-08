@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" th:href="@{image/cake.png}">
+
+    <!-- swiper link  -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- cdn icon link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file  -->
+    <link rel="stylesheet" th:href="@{stylesheets/about.css}">
+
+</head>
+
+<!-- header section start here  -->
+<header class="header">
+    <div class="logoContent">
+        <a th:href="@{/}" class="logo"><img th:src="@{image/cake.png}" alt="cake icon"></a>
+        <h1 class="logoName">iRizq Kitchen</h1>
+    </div>
+
+    <nav class="navbar">
+        <a th:href="@{/}">HOME</a>
+        <a th:href="@{/about}">ABOUT US</a>
+        <a th:href="@{/login}">LOGIN</a>
+    </nav>
+</header>
+<!-- header section end here  -->
+
+<body>
+    <main>
+        <div class="intro">
+            <h1>WELCOME TO IRIZQ KITCHEN!</h1>
+            <p id="hello" onclick="myHello()">Hello! Click here</p>
+        </div>
+
+        <div class="grid">
+            <div class="row">
+                <div class="column-00">
+                    <video class="cakeVideo" height="800" controls autoplay muted loop>
+                        <source th:src="@{video/videocake.mp4}" type="video/mp4" class="videocakeMp4">
+                    </video>
+                </div>
+
+                <div class="column-11">
+
+                    <h2 class="xlarge-font"><b>About Us</b></h2>
+                    <p style="font-size:25px"> iRizq Kitchen is a small business that provides a wide variety of
+                        homemade cakes based in Sabak Bernam.
+                        This bakery specialises in events such as children's parties and weddings.
+                        We are still making cakes at home but with all your support and love,
+                        iRizq Kitchen bakery will be officially open soon!
+                        We promise to deliver products with the best quality that can be enjoyed by everyone.
+                    </p><br>
+
+                    <!-- Google Map -->
+                    <div class="column-33">
+                        <h2 class="xlarge-font"><b>Location</b></h2>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127400.91868073451!2d100.81822226641174!3d3.7493641363875065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cb5e0dbb637b09%3A0x9c779471a1f2e641!2s45400%20Sabak%2C%20Selangor!5e0!3m2!1sen!2smy!4v1657205773111!5m2!1sen!2smy"
+                            width="800" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container1">
+            <div class="row">
+                <div class="column-22">
+                    <img th:src="@{image/IMG_20220622_134856_486.jpg}" alt="img" width="360" height="471">
+                </div>
+
+                <div class="column-66">
+
+                    <!-- Vision Section -->
+                    <h2 class=" large-font"><b>Vision</b></h2>
+                    <p><span style="font-size:28px">Let us eat cake!</span> To establish a well known bakery in Sabak
+                        Bernam </p><br>
+
+                    <!-- Mission Section -->
+                    <h2 class="large-font" style="color:#8B4513;"><b>Mission</b></h2>
+                    <p><span style="font-size:28px">Handcrafted with love.</span> To provide appetizing deserts while
+                        preserving its high quality and customer's satisfaction</p>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+<!-- footer section start here  -->
+<footer class="footer" id="contact">
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Opening Hours</h3>
+            <p>Weekdays: 10:00AM - 5:00PM <br> Weekends: 10:00AM - 6:00PM</p>
+        </div>
+
+        <div class="box">
+            <h3>Contact Us</h3>
+            <p>iRizq Kitchen Sabak Bernam (HQ)</p>
+            <p>No.12 Jalan Dewan, Pekan Sabak Bernam, <br> 45200 Sabak Bernam, Selangor</p>
+            <a href="tel:+60 1123 4567" target="_blank"> <i class="fas fa-phone"></i>+60 1123 4567</a>
+            <a href="mailto: irizqkitchen@gmail.com" target="_blank"> <i
+                    class="fas fa-envelope"></i>irizqkitchen@gmail.com</a>
+        </div>
+
+
+    </div>
+    <div class="share">
+        <a href="https://web.facebook.com/rizq.khazinuddin" class="fab fa-facebook-f" target="_blank"></a>
+        <a href="https://www.instagram.com/irizq_kitchen/" class="fab fa-instagram" target="_blank"></a>
+    </div>
+    <div class="credit">
+        irizqkitchen <span>&copy;</span> 2022
+    </div>
+</footer>
+
+
+
+<!-- swiper js link  -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+
+<!-- custom js file  -->
+<script th:src="@{javascript/about.js}"></script>
+
+</html>

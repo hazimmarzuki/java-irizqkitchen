@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --black: #1B1722;
+    --white: #f2e8b9;
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+    --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+*{
+    font-family: 'Quicksand', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none !important;
+    transition: .2s linear;
+}
+
+html{
+    font-size: 62.5% !important;   
+    overflow-x: hidden;
+    scroll-padding-top: 7rem !important;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem !important;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background-color: var(--white);
+    border-radius: 5rem;
+}
+
+/*header starts here*/
+.header{
+    top: 0;right: 0;left: 0;
+    background-color: var(--white);
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between !important;
+    position: fixed !important;
+    padding: 1.4rem 7% !important;
+    z-index: 999;
+}
+
+.header .logoContent{
+    display: flex !important;
+    align-items: center !important;
+}
+
+.header .logoContent .logo img{
+    height: 4rem;
+}
+
+.header .logoContent .logoName{
+    color: var(--black);
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.header .logoContent{                 /* effected by bootstrap */
+    padding-bottom: 2px;
+}
+
+.header .logoName{
+    padding-left: 10px !important;
+    padding-top: 9px !important;                 /* effected by bootstrap */
+}
+
+.header .navbar a{
+    font-size: 2rem;
+    margin-right: 3rem;
+    color: var(--black);
+    font-weight: bold;
+}
+
+.header .navbar a:hover{
+    border-bottom: .1rem solid var(--black);
+    padding-bottom: .4rem !important;
+}
+
+.header .icon i{
+    font-size: 2rem;
+    margin-right: 2rem;
+    color: var(--black);
+    cursor: pointer;
+}
+
+
+/*header ends here*/
+
+
+
+/*main starts here*/
+body{
+  background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+}
+
+main{
+    margin-top: 130px;
+}
+  
+h1{
+    font-size: 5rem;
+    font-weight: 800;
+    position: relative;
+    text-align: center;
+}
+
+table.tableOrder{
+  width: 90%;
+  height: auto;
+  background-color: #f2e8b9;
+  margin: 5% auto;
+}
+
+table, th, tr, td{
+  border: 1.2px solid black;
+  border-collapse: collapse;
+}
+
+.tableRow{
+  background-color: #f4e292;
+}
+
+/* .tableHeader1{
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  background-color: #6b8879;
+} */
+
+.tableHeader2{
+  text-align: center;
+  font-size: 25px;
+  padding: 20px;
+}
+
+.gridmain {
+  display: flex;
+  text-align: center;
+  padding: 0 30px;
+}
+
+.tableList1,
+.tableList2,
+.tableList3,
+.tableList4,
+.tableList5,
+.tableList6{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 10px;
+  width: 40%;
+}
+
+.tableOption1,
+.tableOption2,
+.tableOption3,
+.tableOption4,
+.tableOption5,
+.tableOption6{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 10px;
+  width: 20%;
+}
+
+.tableRadio1,
+.tableRadio2,
+.tableRadio3,
+.tableRadio4,
+.tableRadio5,
+.tableRadio6{
+  text-align: left;
+  font-size: 20px;
+  padding: 3%;
+  width: 20%;
+}
+
+.containerimage {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+
+
+.panel {
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40vh;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.7s ease-in;
+  border-radius: 20px;
+}
+
+.panel:hover {
+  flex: 3;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
+.order button {
+  /* display: block; */
+  float: left;
+  /* border: 1px solid black; */
+  
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  /* position: absolute; */
+}
+
+h2.offcanvas-title1, 
+h2.offcanvas-title2,
+h2.offcanvas-title3,
+h3.offcanvas-title1,
+h3.offcanvas-title2,
+h3.offcanvas-title3{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 800;
+}
+
+.offcanvas-header{
+  background-color: #f2e8b9;
+}
+
+.offcanvas-body{
+  padding: 5%;
+}
+
+.myForm1,
+.myForm2,
+.myForm3{
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding: 5%;
+  font-size: large;
+}
+
+.submitOrder1,
+.submitOrder2, 
+.submitOrder3{
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+/*main ends here*/
+
+.swiper-pagination-bullet{
+  background-color: var(--black);
+}
+.swiper-button-next{
+  color: var(--black);
+}
+.swiper-button-prev{
+  color: var(--black);
+}
+
+
+/* media queries for web responsive */
+
+@media (max-width:991px){
+  html{
+      font-size: 55%;
+  }
+  .header{
+      padding: 1.3rem 3rem;
+  }
+  .home .homeContent{
+      margin-left: 0;
+      width: 80%;
+  }
+}
+
+@media (max-width:768px) {
+  #menu-bar{
+      display: inline-block;
+  }
+  .header .navbar{
+      position: absolute;
+      top: 100%;
+      right: -100%;
+      width: 25rem;
+      background-color: var(--white);
+      height: 80vh;
+  }
+  .header .navbar.active{
+      right: 0;
+  }
+  .header .navbar a{
+      display: block;
+      font-size: 2rem;
+      color: black;
+      margin: 1.5rem;
+  }
+
+  .home .homeContent{
+      margin-left: 0;
+      width: 90%;
+  }
+}
+
+@media (max-width:600px){
+  html{
+      font-size: 50%;
+  }
+}

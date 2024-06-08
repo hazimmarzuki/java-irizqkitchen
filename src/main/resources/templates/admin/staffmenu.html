@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baker Menu</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" th:href="@{image/cake.png}">
+  <!-- css bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- cdn icon link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- custom css file  -->
+  <link rel="stylesheet" th:href="@{stylesheets/staffmenu.css}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <style>
+    .body {
+      background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+
+    }
+  </style>
+</head>
+
+<!-- header section start here  -->
+<header class="header">
+  <div class="logoContent">
+    <a th:href="@{/stafforder}" class="logo"><img th:src="@{image/cake.png}" alt="cake icon"></a>
+    <h1 class="logoName">iRizq Kitchen Staff</h1>
+  </div>
+
+  <nav class="navbar">
+    <a th:href="@{/stafflist}">Baker list</a>
+    <a th:href="@{/stafforder}">Order List</a>
+    <a th:href="@{/stafforderhistory}">Order History</a>
+    <a th:href="@{/staffmenu}">Menu</a>
+    <a th:href="@{/staffregister}">Register new baker</a>
+    <a th:href="@{/staffprofile}">Profile</a>
+  </nav>
+</header>
+<!-- header section end here   -->
+
+<body>
+  <section style="padding-top: 100px;">
+    <h1 class="text-center" style="font-weight: bold;">PRODUCT LIST</h1>
+
+    <div class="d-flex justify-content-center" style="margin-top: 10px;">
+      <a th:href="@{/cakeregister}"><button class="btn btn-success" style="font-size: 18px;" type="button">ADD NEW
+          PRODUCTS</button></a>
+    </div>
+
+    <h2 class="d-flex justify-content-center" style="margin-top: 30px; font-weight: bold;">CAKES</h2>
+    <div style="display: flex; justify-content: center;">
+      <div style="text-align: center;">
+        <table class="table table-bordered border-dark image-table " style="font-size: 16px;">
+          <thead>
+            <tr style="background-color: #efdbaa;">
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Product Price (RM)</th>
+              <th>Product Image</th>
+              <th>Cake Size (INCH)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="cake : ${cakes}">
+              <td name="proid" th:text="${cake.proid}"></td>
+              <td th:text="${cake.proname}"></td>
+              <td th:text="${cake.proprice}"></td>
+              <td><img th:src="${cake.proimage}" alt="Product Image" style="width: 200px; height: 200px; "></td>
+              <td th:text="${cake.cakesize}"></td>
+              <td style="display: d-flex align-items center;">
+                <span><a th:href="@{/productdetail?proid=}+${cake.proid}" th:value="${cake.proid}"><button type="button"
+                      class="btn btn-warning">
+                      EDIT PRODUCT
+                    </button></a></span>
+                <span><a th:href="@{/deletemenu(proid=${cake.proid})}" th:value="${cake.proid}"
+                    onclick="return confirm('Are you sure you want to delete this product?')">
+                    <button type="button" class="btn btn-danger">
+                      DELETE PRODUCT
+                    </button></a></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 class="d-flex justify-content-center" style="margin-top: 30px; font-weight: bold;">CUPCAKES</h2>
+    <div style="display: flex; justify-content: center;">
+      <div style="text-align: center;">
+        <table class="table table-bordered border-dark image-table" style="font-size: 16px; background-color: #efdbaa;">
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Product Price (RM)</th>
+              <th>Product Image</th>
+              <th>Cupcake Toppings</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="cupcake : ${cupcakes}">
+              <td name="proid" th:text="${cupcake.proid}"></td>
+              <td th:text="${cupcake.proname}"></td>
+              <td th:text="${cupcake.proprice}"></td>
+              <td> <img th:src="${cupcake.proimage}" alt="Product Image" style="width: 200px; height: 200px;"></td>
+              <td th:text="${cupcake.cuptoppings}"></td>
+              <td><span><a th:href="@{/productdetail?proid=}+${cupcake.proid}" th:value="${cupcake.proid}"><button
+                      type="button" class="btn btn-warning">
+                      EDIT PRODUCT
+                    </button></a></span>
+                <span><a th:href="@{/deletemenu(proid=${cupcake.proid})}" th:value="${cupcake.proid}"
+                    onclick="return confirm('Are you sure you want to delete this product?')"><button type="button"
+                      class="btn btn-danger">
+                      DELETE PRODUCT
+                    </button></a></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+          <div class="toast" role="alert" id="liveToast2" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <!-- <img th:src="@{image/cake.png}" alt="cake icon" class="rounded me-2"> -->
+              <strong class="me-auto">Irizq kitchen</strong>
+              <small>1 sec ago</small>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="display-message1">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      var urlParams = new URLSearchParams(window.location.search);
+      var success = urlParams.get('success');
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const toastLiveExample = document.getElementById("liveToast2");
+        const toastBootstrap = new bootstrap.Toast(toastLiveExample);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const successParam = urlParams.get('success');
+
+        if (successParam !== null && successParam === 'true') {
+          toastBootstrap.show();
+          document.getElementById("display-message1").innerHTML = "product successfully updated!";
+        } else if (successParam !== null && successParam === 'false') {
+          toastBootstrap.show();
+          document.getElementById("display-message1").innerHTML = "Something went wrong. Please try again.";
+        }
+      });
+    </script>
+
+  </section>
+</body>
+
+</html>

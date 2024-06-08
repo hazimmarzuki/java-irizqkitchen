@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Profile</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" th:href="@{image/cake.png}">
+  <!-- css bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- cdn icon link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- custom css file  -->
+  <link rel="stylesheet" th:href="@{stylesheets/custprofile.css}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<!-- header section start here  -->
+<header class="header">
+  <div class="logoContent">
+    <a th:href="@{/stafforder}" class="logo"><img th:src="@{image/cake.png}" alt="cake icon"></a>
+    <h1 class="logoName">iRizq Kitchen</h1>
+  </div>
+
+  <nav class="navbar">
+    <a th:href="@{/stafflist}">Baker list</a>
+    <a th:href="@{/stafforder}">Order List</a>
+    <a th:href="@{/stafforderhistory}">Order History</a>
+    <a th:href="@{/staffmenu}">Menu</a>
+    <a th:href="@{/staffregister}">Register new baker</a>
+    <a th:href="@{/staffprofile}">Profile</a>
+  </nav>
+</header>
+<!-- header section end here  -->
+
+<body>
+  <div class="formcontainer">
+    <h1 class="registerform d-flex justify-content-center">EDIT PRODUCT</h1>
+
+    <form th:action="@{/updateproduct}" method="post" class="d-flex justify-content-center" modelAttribute="product"
+      th:object="${product}">
+      <div class="card col-5">
+        <div class="card-body">
+          <input type="hidden" name="proid" th:value="${product.proid}">
+          <div class="mb-3">
+            <label for="proname" class="form-label ">Product Name:</label>
+            <input type="text" name="proname" class="form-control" th:value="${product.proname}">
+          </div>
+          <div class="mb-3">
+            <label for="protype" class="form-label ">Product Type:</label>
+            <input type="text" name="protype" class="form-control-plaintext" th:value="${product.protype}" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="proprice" class="form-label ">Product Price:</label>
+            <input type="number" name="proprice" th:value="${product.proprice}">
+          </div>
+          <th:block th:if="${product.protype == 'cake'}">
+            <label for="productsname" class="form-label ">Cake Size:</label>
+            <input class="form-control-plaintext " type="text" th:value="${product.cakesize}" readonly>
+            <select class="form-select" name="cakesize" id="cakesize" th:value="${product.cakesize}">
+              <option type="number" value="6">6"</option>
+              <option type="number" value="8">8"</option>
+            </select>
+          </th:block>
+
+          <th:block th:if="${product.protype == 'cupcake'}">
+            <label for="productsname" class="form-label ">Cupcake Topping</label>
+            <input class="form-control-plaintext d-flex " type="text" th:value="${product.cuptoppings}" readonly>
+            <select class="form-select" name="cuptoppings" id="cuptoppings">
+              <option type="text" value="chocchips" selected>Choc Chips</option>
+              <option type="text" value="sprinkles">Sprinkles</option>
+              <option type="text" value="marshmallow">Marshmallow</option>
+            </select>
+          </th:block>
+
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-warning align-items-center">SAVE</button>
+            <button type="button" class="btn btn-primary" onclick="return confirmCancel()">Cancel</button>
+          </div>
+        </div>
+    </form>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+    integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+    crossorigin="anonymous"></script>
+
+  <script>
+    function confirmCancel() {
+      // Show a confirmation dialog
+      var userConfirmed = confirm("Are you sure you want to cancel update product?");
+
+      // If the user confirmed, navigate to '/staffmenu'
+      if (userConfirmed) {
+        window.location.href = '/staffmenu';
+      }
+    }
+  </script>
+</body>

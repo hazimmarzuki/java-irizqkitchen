@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" th:href="@{image/cake.png}">
+
+  <!-- swiper link  -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+
+  <!-- cdn icon link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- custom css file  -->
+  <link rel="stylesheet" th:href="@{stylesheets/home.css}">
+
+</head>
+
+<!-- header section start here  -->
+<header class="header">
+  <div class="logoContent">
+    <a th:href="@{/}" class="logo"><img th:src="@{image/cake.png}" alt="cake icon"></a>
+    <h1 class="logoName">iRizq Kitchen</h1>
+  </div>
+
+  <nav class="navbar">
+    <a th:href="@{/}">HOME</a>
+    <a th:href="@{/about}">ABOUT US</a>
+    <a th:href="@{/login}">LOGIN</a>
+  </nav>
+</header>
+<!-- header section end here  -->
+
+<body>
+
+
+  <!-- main section start here-->
+  <main class="homepage-content">
+
+    <div class="hero-homepage">
+    </div>
+
+    <!-- bestsellers image gallery -->
+    <div id="bestsellers-item">
+
+      <div class="homepage-content-text">
+        <h2>Our Bestseller</h2>
+      </div>
+
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" th:href="@{image/kek-pisang.jpg}">
+            <img th:src="@{image/kek-pisang.jpg}" alt="Cinque Terre" width="600" height="400">
+          </a>
+          <div class="name">kek pisang</div>
+          <div class="desc">Moist and sweet cake made with banana slices. A real treat to be savored with a good cup of
+            coffee or a cold glass of milk.</div>
+        </div>
+      </div>
+
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" th:href="@{image/kek-batik.jpg}">
+            <img th:src="@{image/kek-batik.jpg}" alt="Forest" width="600" height="400">
+          </a>
+          <div class="name">kek batik indulgence</div>
+          <div class="desc">An excellent combination rich in chocolate, biscuits, and cream cheese gives it a soft and
+            creamy taste.</div>
+        </div>
+      </div>
+
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" th:href="@{image/kek-brownies.jpg}">
+            <img th:src="@{image/kek-brownies.jpg}" alt="Forest" width="600" height="400">
+          </a>
+          <div class="name">brownies</div>
+          <div class="desc">A square or rectangular chocolate-baked confection. Cakey on the outside and fudgy in the
+            middle!</div>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div style="padding:6px"></div>
+
+    </div>
+    <!-- end of bestsellers image gallery -->
+
+
+    <!-- audio -->
+    <div class="audioMusic">
+      <audio th:src="@{audio/bg-music.mp3}" class="my-audio " controls autoplay
+        style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;"></audio>
+    </div>
+
+  </main>
+  <!--main section end here-->
+
+
+  <!-- swiper js link  -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+
+  <!-- custom js file  -->
+  <script th:src="@{javascript/home.js}"></script>
+
+</body>
+<!-- footer section start here  -->
+<footer class="footer" id="contact">
+  <div class="box-container">
+
+    <div class="box">
+      <h3>Opening Hours</h3>
+      <p>Weekdays: 10:00AM - 5:00PM <br> Weekends: 10:00AM - 6:00PM</p>
+    </div>
+
+    <div class="box">
+      <h3>Contact Us</h3>
+      <p>iRizq Kitchen Sabak Bernam (HQ)</p>
+      <p>No.12 Jalan Dewan, Pekan Sabak Bernam, <br> 45200 Sabak Bernam, Selangor</p>
+      <a href="tel:+60 1123 4567" target="_blank"> <i class="fas fa-phone"></i>+60 1123 4567</a>
+      <a href="mailto: irizqkitchen@gmail.com" target="_blank"> <i
+          class="fas fa-envelope"></i>irizqkitchen@gmail.com</a>
+    </div>
+
+  </div>
+  <div class="share">
+    <a href="https://web.facebook.com/rizq.khazinuddin" class="fab fa-facebook-f" target="_blank"></a>
+    <a href="https://www.instagram.com/irizq_kitchen/" class="fab fa-instagram" target="_blank"></a>
+  </div>
+  <div class="credit">
+    irizqkitchen <span>&copy;</span> 2022
+  </div>
+</footer>
+
+</html>

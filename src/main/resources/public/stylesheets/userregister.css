@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --black: #1B1722;
+    --white: #f2e8b9;
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+    --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+*{
+    font-family: 'Quicksand', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: .2s linear;
+    
+    
+}
+
+html{
+    font-size: 62.5%;   
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background-color: var(--white);
+    border-radius: 5rem;
+}
+
+
+
+body{
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+}
+
+.formcontainer{
+    
+    padding-top: 8%;
+    align-items: center;
+}
+
+.card{
+    border-radius: 10px;
+    background: #efe5c0;
+    box-shadow:  20px 20px 60px #95938c;
+             
+}
+
+.form-label{
+    font-weight: bold;
+}
+

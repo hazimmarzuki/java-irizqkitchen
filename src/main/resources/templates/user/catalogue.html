@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" th:href="@{/image/cake.png}">
+
+  <!-- CSS Bootstrap only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+
+  <!-- swiper link  -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!-- cdn icon link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- custom css file  -->
+  <link rel="stylesheet" th:href="@{stylesheets/catalogue.css}">
+
+</head>
+
+<body>
+  <!-- header section start here  -->
+  <header class="header">
+    <div class="logoContent">
+      <a th:href="@{/catalogue}" class="logo"><img th:src="@{image/cake.png}" alt="cake icon"></a>
+      <h1 class="logoName">iRizq Kitchen</h1>
+    </div>
+
+    <nav class="navbar">
+      <a th:href="@{/orderHistory}">Order History</a>
+      <a th:href="@{/catalogue}">Menu</a>
+      <a th:href="@{/custprofile}">Profile</a>
+    </nav>
+  </header>
+  <!-- header section end here  -->
+
+  <main>
+    <h1>Menu</h1>
+
+    <h2 class="d-flex justify-content-center" style="margin-top: 40px; font-weight: bold;">CAKES</h2>
+    <div style="display: flex; justify-content: center;">
+      <div style="text-align: center;">
+        <table class="table table-bordered border-dark image-table "
+          style="font-size: 16px; background-color: #efdbaa;">
+          <thead>
+            <tr style="background-color: #cfbe93;">
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Product Price (RM)</th>
+              <th>Product Image</th>
+              <th>Cake Size (INCH)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="cake : ${cakes}">
+              <td th:text="${cake.proid}"></td>
+              <td th:text="${cake.proname}"></td>
+              <td name="proprice" th:text="${cake.proprice}"></td>
+              <td><img th:src="${cake.proimage}" alt="Product Image" style="width: 200px; height: 200px; "></td>
+              <td th:text="${cake.cakesize}"></td>
+              <td style="display: d-flex align-items center;">
+
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                  th:data-bs-target="'#offcanvasRight-' + ${cake.proid}"
+                  th:aria-controls="'offcanvasRight-' + ${cake.proid}"
+                  style="font-size: medium; background-color: #000000; border: #000000; border-radius: 8px; padding: 10px 20px;">
+                  <strong>Order Here</strong>
+                </button>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" th:id="'offcanvasRight-' + ${cake.proid}"
+                  th:aria-labelledby="'offcanvasRightLabel-' + ${cake.proid}">
+                  <!-- Offcanvas content -->
+                  <div class="offcanvas-header">
+                    <h2 class="offcanvas-title" id="offcanvasRightLabel-${cake.proid}" th:text="${cake.proname}"></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+
+                  <div class="offcanvas-body">
+                    <div class="panel"><img th:src="${cake.proimage}" alt="Product Image"
+                        style="width: 200px; height: 200px; "></div>
+                    <div class="myForm1">
+                      <h3 class="offcanvas-title" id="offcanvasRightLabel">Order Details</h3><br><br>
+
+                      <form id="myForm1" th:action="@{/orderproduct}" method="post" modelAttribute="catalogue"
+                        th:object="(${catalogue})">
+                        <label for="cakesize">Size: </label>
+                        <input class="form-control-plaintext" name="prosize" type="text" th:value="${cake.cakesize}"
+                          readonly style="text-align: center;">
+                        <label for="cakeqty">Quantity: </label>
+                        <input type="number" name="quantity" id="cakeqty1" placeholder="eg. 1" min="1"
+                          style="background-color: #fff3d7;"><br>
+                        <input type="hidden" name="proprice" th:value="${cake.proprice}" />
+                        <input type="hidden" name="proid" th:value="${cake.proid}" />
+                        <input type="hidden" name="proname" th:value="${cake.proname}" />
+                        <div class="submitOrder1" id="submitOrder1">
+                          <button type="submit"
+                            style="color: #000000; font-weight: 800; border: 1px solid #f9eaa7; border-radius: 15px; background-color: #f9eaa7; padding: 8px 30%;">Place
+                            Order</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 class="d-flex justify-content-center" style="margin-top: 30px; font-weight: bold;">CUPCAKES</h2>
+    <div style="display: flex; justify-content: center;">
+      <div style="text-align: center;">
+        <table class="table table-bordered border-dark image-table" style="font-size: 16px; background-color: #efdbaa;">
+          <thead>
+            <tr style="background-color: #cfbe93;">
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Product Price (RM)</th>
+              <th>Product Image</th>
+              <th>Cupcake Toppings</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="cupcake : ${cupcakes}">
+              <td th:text="${cupcake.proid}"></td>
+              <td th:text="${cupcake.proname}"></td>
+              <td name="proprice" th:text="${cupcake.proprice}"></td>
+              <td> <img th:src="${cupcake.proimage}" alt="Product Image" style="width: 200px; height: 200px;"></td>
+              <td th:text="${cupcake.cuptoppings}"></td>
+              <td>
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                  th:data-bs-target="'#offcanvasRight-' + ${cupcake.proid}"
+                  th:aria-controls="'offcanvasRight-' + ${cupcake.proid}"
+                  style="font-size: medium; background-color: #000000; border: #000000; border-radius: 8px; padding: 10px 20px;">
+                  <strong>Order Here</strong>
+                </button>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" th:id="'offcanvasRight-' + ${cupcake.proid}"
+                  th:aria-labelledby="'offcanvasRightLabel-' + ${cupcake.proid}">
+                  <div class="offcanvas-header">
+                    <h2 class="offcanvas-title1" id="offcanvasRightLabel1-${cupcake.proid}" th:text="${cupcake.proname}"></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+
+                  <div class="offcanvas-body">
+                    <div class="panel"><img th:src="${cupcake.proimage}" alt="Product Image"
+                        style="width: 200px; height: 200px; "></div>
+                    <div class="myForm1">
+                      <h3 class="offcanvas-title1" id="offcanvasRightLabel">Order Details</h3><br><br>
+                      <form id="myForm1" th:action="@{/orderproduct}" method="post" modelAttribute="catalogue"
+                        th:object="(${catalogue})">
+                        <label for="cakesize">Topping: </label>
+                        <input class="form-control-plaintext" type="text" th:value="${cupcake.cuptoppings}" readonly
+                          style="text-align: center;">
+                        <label for="cakeqty">Quantity: </label>
+                        <input type="number" name="quantity" id="cupcakeqty1" placeholder="eg. 1" min="1"
+                          style="background-color: #fff3d7;"><br>
+                        <input type="hidden" name="proprice" th:value="${cupcake.proprice}" />
+                        <input type="hidden" name="proid" th:value="${cupcake.proid}" />
+                        <input type="hidden" name="proname" th:value="${cupcake.proname}" />
+                        <div class="submitOrder1" id="submitOrder1">
+                          <button type="submit"
+                            style="color: #000000; font-weight: 800; border: 1px solid #f9eaa7; border-radius: 15px; background-color: #f9eaa7; padding: 8px 30%;">Place
+                            Order</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div class="toast" role="alert" id="liveToast2" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <!-- <img th:src="@{image/cake.png}" alt="cake icon" class="rounded me-2"> -->
+          <strong class="me-auto">Irizq kitchen</strong>
+          <small>1 sec ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="display-message1">
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- swiper js link  -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+    integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+    crossorigin="anonymous"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
+      var offcanvasList = offcanvasTriggerList.map(function (offcanvasTriggerEl) {
+        return new bootstrap.Offcanvas(offcanvasTriggerEl, {
+          backdrop: true,
+          keyboard: true
+        });
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      const toastLiveExample = document.getElementById("liveToast2");
+      const toastBootstrap = new bootstrap.Toast(toastLiveExample);
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const successParam = urlParams.get('success');
+
+      if (successParam !== null && successParam === 'true') {
+        toastBootstrap.show();
+        document.getElementById("display-message1").innerHTML = "Welcome to Irizq Kitchen!";
+      } else if (successParam !== null && successParam === 'false') {
+        toastBootstrap.show();
+        document.getElementById("display-message1").innerHTML = "Something went wrong. Please try again.";
+      }
+    });
+  </script>
+</body>
+
+</html>

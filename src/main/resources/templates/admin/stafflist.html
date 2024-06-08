@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Baker's List</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" th:href="@{image/cake.png}">
+    <!-- cdn icon link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- custom css file  -->
+    <link rel="stylesheet" th:href="@{stylesheets/stafflist.css}">
+</head>
+<!-- header section start here  -->
+<header class="header">
+    <div class="logoContent">
+        <a th:href="@{/stafforder}" class="logo"><img th:src="@{image/cake.png}" alt="cake icon"></a>
+        <h1 class="logoName">iRizq Kitchen Admin</h1>
+    </div>
+
+    <nav class="navbar">
+        <a th:href="@{/stafflist}">Baker list</a>
+        <a th:href="@{/stafforder}">Order List</a>
+        <a th:href="@{/stafforderhistory}">Order History</a>
+        <a th:href="@{/staffmenu}">Menu</a>
+        <a th:href="@{/staffregister}">Register new baker</a>
+        <a th:href="@{/staffprofile}">Profile</a>
+    </nav>
+</header>
+<!-- header section end here  -->
+
+<body class="py-5">
+    <h1 class="text-center " style="font-size: x-large; font-weight: bold;">Baker Staffs</h1>
+    <div class="container py-5 ">
+        <div cla ss="py-5">
+            <div class="">
+                <table class=" table-bordered table-striped position-absolute top-30 start-50 translate-middle">
+                    <thead class="table-light">
+                        <tr style="background-color: #efdbaa;">
+                            <th>BAKER ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tr th:each="staff : ${staffs}" style="background-color: #FAF0D7;">
+                        <td th:text="${staff.userid}"></td>
+                        <td th:text="${staff.fullname}"></td>
+                        <td th:text="${staff.email}"></td>
+                        <td>
+                            <a th:if="${isAdmin}" th:href="@{/deletestaff/(staffsid=${staff.userid})}"
+                                value="{staff.userid}"
+                                onclick="return confirm('Are you sure you want to delete this staff?')"><button
+                                    class="btn delete-button btn-danger">Delete</button></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+</body>
+<script>
+    function hideDeleteButton(role) {
+        if (role === 'baker') {
+            var deleteButtons = document.getElementsByClassName('delete-button');
+            for (var i = 0; i < deleteButtons.length; i++) {
+                deleteButtons[i].style.display = 'none';
+            }
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url(https://use.fontawesome.com/releases/v5.10.2/css/all.css);
+
+:root{
+    --black: #1B1722;
+    --white: #f2e8b9;
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+    --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+*{
+    font-family: 'Quicksand', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background-color: var(--white);
+    border-radius: 5rem;
+}
+
+/*header starts here*/
+.header{
+    top: 0;right: 0;left: 0;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    padding: 1.4rem 7%;
+    z-index: 999;
+}
+
+.header .logoContent{
+    display: flex;
+    align-items: center;
+}
+
+.header .logoContent .logo img{
+    height: 4rem;
+}
+
+.header .logoContent .logoName{
+    color: var(--black);
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.header .logoName{
+    padding-left: 10px;
+}
+
+.header .navbar a{
+    font-size: 2rem;
+    margin-right: 3rem;
+    color: var(--black);
+    font-weight: bold;
+}
+
+.header .navbar a:hover{
+    border-bottom: .1rem solid var(--black);
+    padding-bottom: .4rem;
+}
+
+.header .icon i{
+    font-size: 2rem;
+    margin-right: 2rem;
+    color: var(--black);
+    cursor: pointer;
+}
+/*header ends here*/
+
+/*main*/
+*{
+    box-sizing:border-box;
+}
+
+.intro{
+    text-align: center;
+    font-size: 3rem;
+    padding: 7px;
+}
+
+main{
+    margin: 120px auto;
+}
+
+h2.xlarge-font{
+    margin-bottom: 20px;
+}
+
+.container{
+    padding: 64px;
+}
+
+.container1 {
+    background-color: #eeeeee;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.row p{
+    font-size: 20px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+}
+
+.cakeVideo{
+    float: left;
+    grid-row: 1 / 2;
+    width: 30%;
+    margin: 5%;
+}
+
+/* about us, description and location*/
+.column-11{
+    float: left;
+    width: 52%;
+    margin: 5% 0;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* image cake */
+.column-22{
+    float: left;
+    width: 25%;
+    padding: 2%;
+}
+
+/* location */
+.column-33{
+    margin-top: 20px;
+}
+
+.large-font {
+    padding-top: 3.3%;
+    font-size: 42px;
+    color:#8AA899;
+}
+
+.xlarge-font {
+    font-size: 54px;
+}
+
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    .column-66,
+    .column-33 {
+      width: 100%;
+      text-align: center;
+    }
+    img {
+      margin: auto;
+    }
+}
+/*end main*/
+
+
+.swiper-pagination-bullet{
+    background-color: var(--black);
+}
+.swiper-button-next{
+    color: var(--black);
+}
+.swiper-button-prev{
+    color: var(--black);
+}
+
+
+
+/*footer starts here*/
+.footer {
+    background-color: #8AA899;
+    margin-top: 70px;
+    padding-bottom: 10px;
+}
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+    padding: 1% 5%;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    color: var(--black);
+    padding: 1rem 0;
+}
+.footer .box-container .box p{
+    display: block;
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 1rem 0;
+}
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color: var(--black);
+}
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+}
+
+.footer .share{
+    padding: 1rem 0;
+    text-align: center;
+}
+.footer .share a{
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    font-size: 2rem;
+    color: var(--white);
+    background: var(--black);
+    margin: 0 .3rem;
+    border-radius: 50%;
+
+}
+.footer .share a:hover{
+    background: var(--white);
+    color: var(--black);
+}
+.footer .credit{
+    font-size: 15px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    color: var(--black);
+    text-align: center;
+}
+/*footer ends here*/
+
+.swiper-pagination-bullet{
+    background-color: var(--black);
+}
+.swiper-button-next{
+    color: var(--black);
+}
+.swiper-button-prev{
+    color: var(--black);
+}
+
+
+/* media queries for web responsive */
+
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding: 1.3rem 3rem;
+    }
+    .home .homeContent{
+        margin-left: 0;
+        width: 80%;
+    }
+}
+
+@media (max-width:768px) {
+    #menu-bar{
+        display: inline-block;
+    }
+    .header .navbar{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 25rem;
+        background-color: var(--white);
+        height: 80vh;
+    }
+    .header .navbar.active{
+        right: 0;
+    }
+    .header .navbar a{
+        display: block;
+        font-size: 2rem;
+        color: black;
+        margin: 1.5rem;
+    }
+
+    .home .homeContent{
+        margin-left: 0;
+        width: 90%;
+    }
+}
+
+@media (max-width:600px){
+    html{
+        font-size: 50%;
+    }
+}

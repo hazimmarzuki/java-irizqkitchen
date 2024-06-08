@@ -1,0 +1,321 @@
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+    :root{
+        --black: #1B1722;
+        --white: #f2e8b9;
+        background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+        --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    *{
+        font-family: 'Quicksand', sans-serif;
+        margin: 0; padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        transition: .2s linear;
+    }
+
+html{
+    font-size: 62.5%;   
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background-color: var(--white);
+    border-radius: 5rem;
+}
+
+/*header starts here*/
+.header{
+    top: 0;right: 0;left: 0;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    padding: 1.4rem 7%;
+    z-index: 999;
+}
+
+.header .logoContent{
+    display: flex;
+    align-items: center;
+}
+
+.header .logoContent .logo img{
+    height: 4rem;
+}
+
+.header .logoContent .logoName{
+    color: var(--black);
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.header .logoName{
+    padding-left: 10px;
+}
+
+.header .navbar a{
+    font-size: 2rem;
+    margin-right: 3rem;
+    color: var(--black);
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+.header .navbar a:hover{
+    border-bottom: .1rem solid var(--black);
+    padding-bottom: .4rem;
+}
+
+.header .icon i{
+    font-size: 2rem;
+    margin-right: 2rem;
+    color: var(--black);
+    cursor: pointer;
+}
+
+/*header ends here*/
+
+
+/* home section */
+
+/* heroimage */
+.hero-homepage {
+    background: url("../image/Irizq-Kitchen-WebHeader-Desktop.png") no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+@media only screen and (max-width: 768px){
+    .hero-homepage{
+        background: url("../image/Irizq-Kitchen-WebHeader-Mobile.png") no-repeat;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+}
+
+
+/* bestsellers styling */
+.audioMusic{
+    display: grid;
+    justify-items: center;
+    margin: 2% 10%;
+    height: 55px;
+    /* background-color: #8AA899; */
+    border-radius: 30px;
+}
+
+.my-audio{
+    width: 100%;
+    padding: 5px;
+}
+
+.homepage-content-text{
+    margin: 20px;
+    font-size: large;
+    text-align: center;
+}
+
+div#bestsellers-item{
+    padding: 10px;
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background:#F5F3F5;
+}
+  
+div.gallery:hover {
+    transform: scale(0.98);
+}
+  
+div.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+div.name{
+    padding-top: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: medium;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+  
+div.desc {
+    padding: 15px;
+    text-align: center;
+    font-size: small;
+}
+
+.responsive {
+    padding: 0 6px;
+    display: flex;
+    align-self: center;
+    float: left;
+    width: 33%;
+}
+  
+@media only screen and (max-width: 700px) {
+    .responsive {
+      width: 50%;
+      margin: 6px 0;
+    }
+}
+  
+@media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
+    }
+}
+  
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+/* end of bestsellers styling */
+
+/*footer starts here*/
+.footer {
+    background-color: #8AA899;
+    padding-bottom: 10px;
+}
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+    padding: 1% 5%;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    color: var(--black);
+    padding: 1rem 0;
+}
+.footer .box-container .box p{
+    display: block;
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 1rem 0;
+}
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color: var(--black);
+}
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+}
+
+.footer .share{
+    padding: 1rem 0;
+    text-align: center;
+}
+.footer .share a{
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    font-size: 2rem;
+    color: var(--white);
+    background: var(--black);
+    margin: 0 .3rem;
+    border-radius: 50%;
+
+}
+.footer .share a:hover{
+    background: var(--white);
+    color: var(--black);
+}
+.footer .credit{
+    font-size: 15px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    color: var(--black);
+    text-align: center;
+}
+/*footer ends here*/
+
+
+
+
+/* media queries for web responsive */
+
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding: 1.3rem 3rem;
+    }
+    .home .homeContent{
+        margin-left: 0;
+        width: 80%;
+    }
+}
+
+@media (max-width:768px) {
+    #menu-bar{
+        display: inline-block;
+    }
+    .header .navbar{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 25rem;
+        background-color: var(--white);
+        height: 80vh;
+    }
+    .header .navbar.active{
+        right: 0;
+    }
+    .header .navbar a{
+        display: block;
+        font-size: 2rem;
+        color: black;
+        margin: 1.5rem;
+    }
+
+    .home .homeContent{
+        margin-left: 0;
+        width: 90%;
+    }
+}
+
+@media (max-width:600px){
+    html{
+        font-size: 50%;
+    }
+}
